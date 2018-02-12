@@ -1,0 +1,10 @@
+{
+  "name": "Uka",
+  "version": "1.0.0",
+  "description": "Uka Discord bot",
+  "main": "bot.js",
+  "author": "Kyristepiu",
+  "dependencies": {
+    "winston": "^2.4.0"
+  }
+}
