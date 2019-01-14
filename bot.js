@@ -77,4 +77,48 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             // Just add any case commands if you want to..
          }
      }
+	 // Dad jokes part
+     if (message.substring(0, 7)=='je suis'){
+
+       bot.sendMessage({
+         to: channelID,
+         message: 'Salut ' + message.substring(8, message.Length) + ', moi c\'est Uka!'
+       });
+
+     }
+	 
+	 if (message.substring(0, 6)=="J'aime"){
+
+       bot.sendMessage({
+         to: channelID,
+         message: 'Moi non. J\'aime pas '+ message.substring(7, message.Length)
+       });
+
+     }
+	 
+	 if ((message.substring(0, 6)=="Coucou" || message.substring(0, 6)=="coucou")  && user!='Uka'){
+		userID = "<@" + userID + ">"
+       bot.sendMessage({
+         to: channelID,
+         message: "Coucou " +userID+", tu veux voir ma *censuré* ?"
+       });
+	 }
+
+     
+	 if ((message.includes(' con') || message.includes('con ')) && user!='Uka'){
+		 userID = "<@" + userID + ">"
+       bot.sendMessage({
+         to: channelID,
+         message: "C'est pas très gentil ça "+userID
+       });
+	 }
+	 
+	 if (message == 'cookie'){
+
+       bot.sendMessage({
+         to: channelID,
+         message: ':rotating_light: :rotating_light: :rotating_light: Voici une cargaison de cookies! J\'ai entendu dire que c\'était urgent! :cookie: :cookie: :cookie:'
+       });
+
+     }
 });
