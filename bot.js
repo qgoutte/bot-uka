@@ -20,11 +20,11 @@ bot.on('ready', function (evt) {
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
 
-//Bot when message 
+//Bot when message
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!uka`
-	
+
     if (message.substring(0, 4) == '!uka') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
@@ -56,17 +56,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				logger.info('Received : !ukanetworks BY ' + user);
 				logger.info('Response : Les networks d\'Ulfuria');
             break;
-			
+
 			case 'ukahelp':
 				bot.sendMessage({
 					to: channelID,
-					message: 'Voici ce que je sais faire : \n *!ukahello* : Je te fais un coucou \n *!ukahelp* : Je te donne la liste des commandes \n *!ukainfo* : Je donne les informations du serveur \n *!ukanetworks* : Je te donne nos réseaux sociaux' 
+					message: 'Voici ce que je sais faire : \n *!ukahello* : Je te fais un coucou \n *!ukahelp* : Je te donne la liste des commandes \n *!ukainfo* : Je donne les informations du serveur \n *!ukanetworks* : Je te donne nos réseaux sociaux'
 				});
 				logger.info('Received : !ukahelp BY ' + user);
 				logger.info('Response : Help');
 			break;
-			
-			default : 
+
+			default :
 			bot.sendMessage({
 				to: channelID,
 				message : 'Désolé je ne connais pas cette commande :\'(\nEcris "!ukahelp" pour voir ce que je sais faire'
@@ -77,8 +77,18 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             // Just add any case commands if you want to..
          }
      }
+
+
+
+/*
+    This part is about commands that are more really jokes.
+*/
+
+
+
+
 	 // Dad jokes part
-     if (message.substring(0, 7)=='je suis'){
+     if (message.toLowerCase().includes('je suis'.toLowerCase())){
 
        bot.sendMessage({
          to: channelID,
@@ -86,8 +96,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        });
 
      }
-	 
-	 if (message.substring(0, 6)=="J'aime"){
+
+   // I don't like
+	 if (message.toLowerCase().includes("J'aime".toLowerCase())){
 
        bot.sendMessage({
          to: channelID,
@@ -95,8 +106,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        });
 
      }
-	 
-	 if ((message.substring(0, 6)=="Coucou" || message.substring(0, 6)=="coucou")  && user!='Uka'){
+
+
+   // Hello, do you wanna see my pp?
+	 if ((message.toLowerCase().includes('coucou'.toLowerCase()) && user!='Uka'){
 		userID = "<@" + userID + ">"
        bot.sendMessage({
          to: channelID,
@@ -104,16 +117,18 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        });
 	 }
 
-     
-	 if ((message.includes(' con') || message.includes('con ')) && user!='Uka'){
+
+  // Uka Insults Police
+	 if ((message.toLowerCase().includes(' con '.toLowerCase()) && user!='Uka'){
 		 userID = "<@" + userID + ">"
        bot.sendMessage({
          to: channelID,
          message: "C'est pas très gentil ça "+userID
        });
 	 }
-	 
-	 if (message == 'cookie'){
+
+   // Cookie emergency
+	 if (message.toLowerCase().includes('cookie'.toLowerCase())){
 
        bot.sendMessage({
          to: channelID,
@@ -121,4 +136,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        });
 
      }
+
+
+
 });
