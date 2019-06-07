@@ -118,12 +118,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	 }
 
 
-  // Uka Insults Police
+  // Uka Insults Policy
 	 if ((message.toLowerCase().includes(' con '.toLowerCase()) && user!='Uka'){
 		 userID = "<@" + userID + ">"
        bot.sendMessage({
          to: channelID,
-         message: "C'est pas très gentil ça "+userID
+         message: "C'est pas très gentil ça "+userID+" ! Soit plus gentil avec tes camarades."
        });
 	 }
 
